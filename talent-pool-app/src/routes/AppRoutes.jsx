@@ -78,13 +78,17 @@ import Home from '../pages/Home';
 import {reactLocalStorage} from 'reactjs-localstorage';
 // Simple ProtectedRoute: Checks token in localStorage
 const ProtectedRoute = ({ children }) => {
+  console.log('ProtectedRoute');
   const token = reactLocalStorage.getItem('token');
+  console.log('ProtectedRoute', token);
   return token ? children : <Navigate to="/login" replace />;
 };
 
 // Simple PublicRoute: Redirects to profile if token exists
 const PublicRoute = ({ children }) => {
+  console.log('PublicRoute');
   const token = reactLocalStorage.getItem('token');
+  console.log('PublicRoute', token);
   return token ? <Navigate to="/profile" replace /> : children;
 };
 
