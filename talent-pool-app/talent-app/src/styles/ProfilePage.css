@@ -1,0 +1,144 @@
+.profile-container {
+  background: #FFFFFF;
+  padding: 24px;
+  /* min-height: 814px; */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  margin: 110px 20px 24px;
+  border: 1px solid #DDDDDD
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.profile-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.edit-button-wrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.edit-button {
+  background-color: #239852;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: #1f7d45;
+}
+
+.divider {
+  border-top: 1px solid #ccc;
+  margin-bottom: 24px;
+}
+
+.profile-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.profile-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.text-muted {
+  color: #666;
+  font-size: 14px;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .profile-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.value {
+  font-size: 14px;
+}
+
+.about-section {
+  margin-bottom: 24px;
+}
+
+.text {
+  color: #333;
+  font-size: 15px;
+}
+
+.resume-sections {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .resume-sections {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.resume-item {
+  margin-bottom: 16px;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-small {
+  font-size: 13px;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-badge {
+  background-color: #e5e7eb;
+  color: #333;
+  padding: 4px 12px;
+  font-size: 13px;
+  border-radius: 9999px;
+}

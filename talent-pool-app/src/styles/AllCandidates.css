@@ -1,0 +1,60 @@
+/* All Candidates Container */
+.all-candidates-container {
+  width: 100%;
+  /* max-width: 1250px; */
+  margin: 0px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px #e2e4e7, 0 4px 6px rgba(0, 0, 0, 0.02);
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.all-candidates-container .title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #000;
+}
+
+/* Candidate Row Layout */
+.all-candidates-container .candidate-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.all-candidates-container .candidate-row > * {
+  width: calc(50% - 10px); /* Two per row with 20px gap */
+  box-sizing: border-box;
+}
+
+/* Tablet: Stack full-width */
+@media (max-width: 950px) {
+  .all-candidates-container {
+    padding: 16px;
+  }
+
+  .all-candidates-container .title {
+    font-size: 18px;
+  }
+
+  .all-candidates-container .candidate-row > * {
+    width: 100%; /* Stack vertically */
+  }
+}
+
+/* Mobile: Compact view */
+@media (max-width: 480px) {
+  .all-candidates-container {
+    padding: 12px;
+  }
+
+  .all-candidates-container .title {
+    font-size: 16px;
+  }
+
+  .all-candidates-container .candidate-row {
+    gap: 16px;
+  }
+}
