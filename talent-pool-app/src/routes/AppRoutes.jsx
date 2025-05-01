@@ -9,14 +9,7 @@ import JobPosts from '../pages/admin/JobPosts';
 import JobRequirementsPage from '../pages/admin/Jobs';
 import Profile from '../pages/user/Profile';
 import Layout from '../layout/MainLayout';
-import withAuth from '../hoc/withAuth';
-
-// Protect routes using withAuth HOC
-const ProtectedUploadResume = withAuth(UploadResume);
-const ProtectedAdminExplore = withAuth(Explore);
-const ProtectedAdminJobPosts = withAuth(JobPosts);
-const ProtectedAdminJobRequirementsPage = withAuth(JobRequirementsPage);
-const ProtectedProfile = withAuth(Profile);
+import ProtectedRoute from './ProtectedRoute';
 
 const AppRoutes = () => {
   return (
@@ -24,16 +17,52 @@ const AppRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<Home />} />
 
-      {/* Routes with layout */}
       <Route element={<Layout />}>
-        <Route path="/upload-resume" element={<ProtectedUploadResume />} />
-        <Route path="/admin/explore" element={<ProtectedAdminExplore />} />
-        <Route path="/admin/job-post" element={<ProtectedAdminJobPosts />} />
-        <Route path="/admin/jobs" element={<ProtectedAdminJobRequirementsPage />} />
-        <Route path="/profile" element={<ProtectedProfile />} />
+        {/* Jobseeker routes */}
+        <Route
+          path="/upload-resume"
+          element={
+            <ProtectedRoute allowedRoles={['jobseeker']}>
+              <UploadResume />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute allowedRoles={['jobseeker']}>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Admin routes */}
+        <Route
+          path="/admin/explore"
+          element={
+            <ProtectedRoute allowedRoles={['admin']}>
+              <Explore />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/job-post"
+          element={
+            <ProtectedRoute allowedRoles={['admin']}>
+              <JobPosts />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/jobs"
+          element={
+            <ProtectedRoute allowedRoles={['admin']}>
+              <JobRequirementsPage />
+            </ProtectedRoute>
+          }
+        />
       </Route>
 
-      {/* 404 Fallback */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
