@@ -75,16 +75,16 @@ import Explore from '../pages/admin/Explore';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from '../pages/auth/Login';
 import Home from '../pages/Home';
-
+import {reactLocalStorage} from 'reactjs-localstorage';
 // Simple ProtectedRoute: Checks token in localStorage
 const ProtectedRoute = ({ children }) => {
-  const token = localStorage.getItem('token');
+  const token = reactLocalStorage.getItem('token');
   return token ? children : <Navigate to="/login" replace />;
 };
 
 // Simple PublicRoute: Redirects to profile if token exists
 const PublicRoute = ({ children }) => {
-  const token = localStorage.getItem('token');
+  const token = reactLocalStorage.getItem('token');
   return token ? <Navigate to="/profile" replace /> : children;
 };
 
